@@ -1,4 +1,4 @@
-baseURL                   = "https://stoic-newton-ff23a5.netlify.com/"
+baseURL                   = "https://www.thecodebinge.com/"
 builddrafts                = false
 languageCode               = "en-US"
 canonifyurls               = true
