@@ -11,7 +11,7 @@ summaryLength              = 200
 Paginate                   = 3
 
 theme                      = "AllinOne"
-title                      = "Orianna"
+title                      = "CodeBinge"
 
 pygmentsuseclasses         = true
 
@@ -72,7 +72,7 @@ pygmentsuseclasses         = true
   katex                    = true
 
   # links
-  email                    = "arjun289singh@email.com"
+  email                    = "arjun289singh@gmail.com"
   github                   = "https://github.com/arjun289"
   linkedin                 = "https://www.linkedin.com/in/arjun-singh-51437597/"
   twitter                  = "https://twitter.com/arjun289singh" 

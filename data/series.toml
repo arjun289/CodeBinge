@@ -8,4 +8,7 @@ name = "blog养成记"
 img = "images/blog/2018-08/test5.jpg"
 summary = "How I build up my personal website"
 
-
+[[series]]
+name = "Elixir OTP"
+img = "images/series/elixir/ActorModel.png"
+summary = "A collection of blogs on understanding OTP with respect to Elixir"
