@@ -50,12 +50,12 @@ pygmentsuseclasses         = true
 [params]
   faviconfile              = "img/zheng.png"               # from static/
   avatar                   = "img/profile.jpg"             # path to image in static dir e.g img/avatar.png 
-  author                   = "Orianna"
-  description              = ["Be myself.", "Love the wonderful world.", "Do the right things and be a better man."]           # appears in the site header when set to a non-empty string
-  welcome_head             = "Hello, World!"
+  author                   = "CodeBinge"
+  description              = ["It's Good.", "If done in right amount.", "Make this world a better place with inventions!"]           # appears in the site header when set to a non-empty string
+  welcome_head             = "Hello |> World!"
   welcome_word             = "~ No Day But Today ~"
 
-  latestpostscount         = 5                             # how many posts to display on the home page
+  latestpostscount         = 5                          # how many posts to display on the home page
   bloggroupby              = 'month'
   dateform                 = "Jan 2, 2006"
   dateformfull             = "2006-01-02  Monday  15:04:05"
@@ -65,7 +65,7 @@ pygmentsuseclasses         = true
   slidesDirPath            = "themes/AllinOne/static/img/header-slides"    # path to image in local dir (path for hugo)
   slidesDirPathURL         = "img/header-slides"    # path to image in static dir (for static pages)
 
-  # highlighting 
+  # highlighting
   highlightjs              = true
 
   # latex
@@ -80,3 +80,5 @@ pygmentsuseclasses         = true
   
   # analytics
   googleAnalytics          = "your-google-analytic-id"
+  
+  custom_css = ["css/blog.css"]

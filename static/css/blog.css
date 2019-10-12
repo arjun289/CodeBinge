@@ -1,0 +1,13 @@
+img[src$='#profile-image'] {
+    border-radius: 50%;
+    width: 200px;
+}
+
+.profile-fig {
+    float: right;
+    text-align: center;
+}
+
+.profile-fig > figcaption > h4 {
+    font-weight: 100
+}
