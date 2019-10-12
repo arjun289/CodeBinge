@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Orianna</title>
+    <title>Categories on CodeBinge</title>
     <link>https://www.thecodebinge.com/categories/</link>
-    <description>Recent content in Categories on Orianna</description>
+    <description>Recent content in Categories on CodeBinge</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 09 Oct 2019 12:47:47 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 09 Oct 2019 13:59:48 +0800</lastBuildDate>
     
 	<atom:link href="https://www.thecodebinge.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Elixir</title>
       <link>https://www.thecodebinge.com/categories/elixir/</link>
-      <pubDate>Wed, 09 Oct 2019 12:47:47 +0800</pubDate>
+      <pubDate>Wed, 09 Oct 2019 13:59:48 +0800</pubDate>
       
       <guid>https://www.thecodebinge.com/categories/elixir/</guid>
       <description></description>
