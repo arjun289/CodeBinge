@@ -81,4 +81,5 @@ pygmentsuseclasses         = true
   # analytics
   googleAnalytics          = "your-google-analytic-id"
   
-  custom_css = ["css/blog.css"]
+  custom_css = ["css/blog.css", "css/prism.css"]
+

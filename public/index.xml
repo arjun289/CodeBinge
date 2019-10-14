@@ -21,12 +21,19 @@
     </item>
     
     <item>
-      <title>Elixir GenServers 101</title>
-      <link>https://www.thecodebinge.com/blog/2019-10/elixir-genservers-101/</link>
+      <title>Elixir GenServers 101, Part 1</title>
+      <link>https://www.thecodebinge.com/blog/2019-10/elixir-genservers-101-part-1/</link>
       <pubDate>Wed, 09 Oct 2019 12:47:47 +0800</pubDate>
       
-      <guid>https://www.thecodebinge.com/blog/2019-10/elixir-genservers-101/</guid>
-      <description></description>
+      <guid>https://www.thecodebinge.com/blog/2019-10/elixir-genservers-101-part-1/</guid>
+      <description>What are Server Processes A server process can be defined as one with the following behaviour :
+ Long running process. It can maintain state. It can process messages and react to them. It may modify the internal state. It may send a reply back to the client.  Server processes are important in building highly concurrent systems. Erlang provides an important abstraction to handle server processes in it&amp;rsquo;s portion of OTP framework, known as a Genserver.
+Implementing a Server Process But before we go into nitty gritties of Genserver. Let&amp;rsquo;s build a minimal version of this abstraction ourselves. To do this we have to implement a process which has the behaviour mentioned above for a server process.
+The generic module that we will create will perform tasks common to server processes, while specific tasks are left to concrete implementations.
+First steps first create a new project with :
+mix new server_process  Inside your project create a module ServerProcess.GenericServer in
+lib/server_process/generic_server.ex.
+This module handles our generic code implmentation, the specifics of which(e.g. inital state, processing) would be handled by a concrete implementation which we can handle by using the concreate modules as callbacks (will become more clear as we move forward).</description>
     </item>
     
     <item>
