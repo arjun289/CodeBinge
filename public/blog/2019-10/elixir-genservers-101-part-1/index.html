@@ -9,22 +9,22 @@
   <meta name="author" content="CodeBinge">
   <meta name="description" content="What are Server Processes A server process can be defined as one with the following behaviour :
  Long running process. It can maintain state. It can process messages and react to them. It may modify the internal state. It may send a reply back to the client.  Server processes are important in building highly concurrent systems. Erlang provides an important abstraction to handle server processes in it&rsquo;s portion of OTP framework, known as a Genserver.
-Implementing a Server Process But before we go into nitty gritties of Genserver. Let&rsquo;s build a minimal version of this abstraction ourselves. To do this we have to implement a process which has the behaviour mentioned above for a server process.
+Implementing the Server Process But before we go into nitty gritties of Genserver. Let&rsquo;s build a minimal version of this abstraction ourselves. To do this we have to implement a process which has the behaviour mentioned above for a server process.
 The generic module that we will create will perform tasks common to server processes, while specific tasks are left to concrete implementations.
-First steps first create a new project with :
+First steps first, create a new project with :
 mix new server_process  Inside your project create a module ServerProcess.GenericServer in
 lib/server_process/generic_server.ex.
-This module handles our generic code implmentation, the specifics of which(e.g. inital state, processing) would be handled by a concrete implementation which we can handle by using the concreate modules as callbacks (will become more clear as we move forward).">
+This module handles our generic code implmentation, the specifics of which(e.g. inital state, processing) would be handled by a concrete implementation which we can handle by using the concrete modules as callbacks (will become more clear as we move forward).">
   
   <meta property="og:title" content="Elixir GenServers 101, Part 1" />
 <meta property="og:description" content="What are Server Processes A server process can be defined as one with the following behaviour :
  Long running process. It can maintain state. It can process messages and react to them. It may modify the internal state. It may send a reply back to the client.  Server processes are important in building highly concurrent systems. Erlang provides an important abstraction to handle server processes in it&rsquo;s portion of OTP framework, known as a Genserver.
-Implementing a Server Process But before we go into nitty gritties of Genserver. Let&rsquo;s build a minimal version of this abstraction ourselves. To do this we have to implement a process which has the behaviour mentioned above for a server process.
+Implementing the Server Process But before we go into nitty gritties of Genserver. Let&rsquo;s build a minimal version of this abstraction ourselves. To do this we have to implement a process which has the behaviour mentioned above for a server process.
 The generic module that we will create will perform tasks common to server processes, while specific tasks are left to concrete implementations.
-First steps first create a new project with :
+First steps first, create a new project with :
 mix new server_process  Inside your project create a module ServerProcess.GenericServer in
 lib/server_process/generic_server.ex.
-This module handles our generic code implmentation, the specifics of which(e.g. inital state, processing) would be handled by a concrete implementation which we can handle by using the concreate modules as callbacks (will become more clear as we move forward)." />
+This module handles our generic code implmentation, the specifics of which(e.g. inital state, processing) would be handled by a concrete implementation which we can handle by using the concrete modules as callbacks (will become more clear as we move forward)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.thecodebinge.com/blog/2019-10/elixir-genservers-101-part-1/" />
 <meta property="article:published_time" content="2019-10-09T12:47:47+08:00" />
@@ -314,7 +314,7 @@ This module handles our generic code implmentation, the specifics of which(e.g. 
 
     
       <li class="middot"></li>
-      <li>2 minutes read</li>
+      <li>3 minutes read</li>
     
   </ul>
   
@@ -338,20 +338,20 @@ This module handles our generic code implmentation, the specifics of which(e.g. 
 </ul>
 
 <p>Server processes are important in building highly concurrent systems.
-Erlang provides an important abstraction to handle server processes in it&rsquo;s portion
-of OTP framework, known as a <code>Genserver</code>.</p>
+Erlang provides an important abstraction to handle server processes in it&rsquo;s
+portion  of OTP framework, known as a <code>Genserver</code>.</p>
 
-<h5 id="implementing-a-server-process">Implementing a Server Process</h5>
+<h5 id="implementing-the-server-process">Implementing the Server Process</h5>
 
 <p>But before we go into nitty gritties of Genserver. Let&rsquo;s build a minimal version
 of this abstraction ourselves.
-To do this we have to implement a process which has the behaviour mentioned above for
-a server process.</p>
+To do this we have to implement a process which has the behaviour mentioned
+above for a server process.</p>
 
-<p>The generic module that we will create will perform tasks common to server processes,
-while specific tasks are left to concrete implementations.</p>
+<p>The generic module that we will create will perform tasks common to server
+processes, while specific tasks are left to concrete implementations.</p>
 
-<p>First steps first create a new project with :</p>
+<p>First steps first, create a new project with :</p>
 
 <pre><code class="language-bash">    mix new server_process
 </code></pre>
@@ -361,20 +361,72 @@ while specific tasks are left to concrete implementations.</p>
 <p><code>lib/server_process/generic_server.ex</code>.</p>
 
 <p>This module handles our generic code implmentation, the specifics of
-which(e.g. inital state, processing) would be handled by a concrete implementation which
-we can handle by using the concreate modules as callbacks (will become more clear as we move forward).</p>
+which(e.g. inital state, processing) would be handled by a concrete
+implementation which  we can handle by using the concrete modules as callbacks
+(will become more clear as we move forward).</p>
 
 <pre><code class="language-elixir">defmodule Server.GenericServer do
-    def start(callback_module) do
-        spawn(fn -&gt;
-        initial_state = callback_module.init()
-        loop(callback_module, initial_state)
-        end)
-
-    end
-    ...
+	def start(callback_module) do
+		spawn(fn -&gt;
+			initial_state = callback_module.init()
+			loop(callback_module, initial_state)
+		end)
+	end
+  ...
 end
 </code></pre>
+
+<p><code>GenericServer.start(callback_module)</code> takes a module name, and spawns a process
+with the initial state, being set by a function <code>init()</code> exposed in the
+<code>callback_module</code>. In order to enforce this rule of exposing the <code>init</code> function
+we can use <a href="https://elixir-lang.org/getting-started/typespecs-and-behaviours.html"><code>behaviours</code></a>.</p>
+
+<pre><code class="language-elixir">defmodule Server.GenericServer do
+	@callback init()
+...
+end
+</code></pre>
+
+<p>With this change all the callback modules implmenting the <code>GenericServer</code> behaviour
+will have to implement the <em>callbacks</em> added.</p>
+
+<p>Next step would be to add the <code>loop(callback, state)</code> function. The loop function
+makes use of a <a href="https://blog.appsignal.com/2019/03/19/elixir-alchemy-recursion.html">tail recursion</a> call to maintain the state and
+keep the process running forever using infinite recursion.</p>
+
+<pre><code class="language-elixir">defmodule Server.GenericServer do
+	@callback handle_call(request :: tuple, state :: any) ::
+    	{response :: any, new_state :: any}
+  	@callback handle_cast(request :: tuple, state :: any)
+    	:: {new_state :: any}
+	....
+
+	def loop(callback_module, state) do
+    new_state =
+      receive do
+        {:call, from, request} -&gt;
+          {result, state} = callback_module.handle_call(request, state)
+          send(from, {:result, result})
+          state
+		{:cast, _from, request} -&gt;
+			callback_module.handle_cast(request)
+      end
+
+    loop(callback_module, new_state)
+  end
+  .....
+end
+</code></pre>
+
+<p>The <code>loop/2</code> function handles the generic logic of sending and receiving messages,
+the specific logic of what to do with the request is handled by the callback module&rsquo;s
+<code>handle_call/2</code> and <code>handle_cast</code> functions. This brings us to the next set of
+callbacks that should be implemented.</p>
+
+<p>A request can be synchronous or asynchronous depending on the requirement. To
+differentiate between them we use <code>:call</code>(synchronous) and <code>cast</code>(asynchronous)
+going with the convention in Elixir. In a synchronous request the calling process
+waits for a response from the server process.</p>
 
           </div>
 
@@ -516,7 +568,7 @@ end
 
 <script type="text/javascript" src="https://www.thecodebinge.com/js/vendors/mdb/mdb.min.js"></script>
 
-<script type="text/javascript" src="js/prism.js" ></script>
+<script type="text/javascript" src="https://www.thecodebinge.com/js/prism.js" ></script>
 <script type="text/javascript" src="https://www.thecodebinge.com/js/main.js"></script>
 
 
