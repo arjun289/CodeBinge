@@ -6,11 +6,11 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
-  <meta name="author" content="Orianna">
-  <meta name="description" content="[Be myself. Love the wonderful world. Do the right things and be a better man.]">
+  <meta name="author" content="CodeBinge">
+  <meta name="description" content="[It&#39;s Good. If done in right amount. Make this world a better place with inventions!]">
   
   <meta property="og:title" content="Blog" />
-<meta property="og:description" content="[Be myself. Love the wonderful world. Do the right things and be a better man.]" />
+<meta property="og:description" content="[It&#39;s Good. If done in right amount. Make this world a better place with inventions!]" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.thecodebinge.com/blog/" />
 
@@ -40,7 +40,7 @@
   <link href="https://www.thecodebinge.com/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
   <link href="https://www.thecodebinge.com/css/vendors/mdb/style.min.css" rel="stylesheet"> 
   <link href="https://www.thecodebinge.com/css/main.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="css/prism.css">
 
   
   <link rel="shortcut icon"
@@ -75,6 +75,8 @@
     <link rel="stylesheet" href="https://www.thecodebinge.com/css/vendors/highlight/github-gist.css">
   
 
+  <link rel="stylesheet" href="https://www.thecodebinge.com/css/blog.css"><link rel="stylesheet" href="https://www.thecodebinge.com/css/prism.css">
+
 </head>
 
   <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
@@ -94,7 +96,7 @@
           
         <img class="avatar" src="https://www.thecodebinge.com/img/zheng.png" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
         
-        <strong> Orianna</strong>
+        <strong> CodeBinge</strong>
       </a>
 
       
@@ -726,9 +728,9 @@
           
               <div class="post-wrapper white-bg post-card">
   
-  <a href="https://www.thecodebinge.com/blog/2019-10/elixir-genservers-101/">
+  <a href="https://www.thecodebinge.com/blog/2019-10/elixir-genservers-101-part-1/">
     <div class="post-header text-center">
-      <div class="px-4 post-heading">Elixir GenServers 101</div>
+      <div class="px-4 post-heading">Elixir GenServers 101, Part 1</div>
       <ul class="post-meta li-x mt-1">
         
           <li>Oct 9, 2019</li>
@@ -736,14 +738,21 @@
     
         
           <li class="middot"></li>
-          <li>0 minutes read</li>
+          <li>3 minutes read</li>
         
       </ul>
     </div>
     
 
     
-      ......
+      What are Server Processes A server process can be defined as one with the following behaviour :
+ Long running process. It can maintain state. It can process messages and react to them. It may modify the internal state. It may send a reply back to the client.  Server processes are important in building highly concurrent systems. Erlang provides an important abstraction to handle server processes in it’s portion of OTP framework, known as a Genserver.
+Implementing the Server Process But before we go into nitty gritties of Genserver. Let’s build a minimal version of this abstraction ourselves. To do this we have to implement a process which has the behaviour mentioned above for a server process.
+The generic module that we will create will perform tasks common to server processes, while specific tasks are left to concrete implementations.
+First steps first, create a new project with :
+mix new server_process  Inside your project create a module ServerProcess.GenericServer in
+lib/server_process/generic_server.ex.
+This module handles our generic code implmentation, the specifics of which(e.g. inital state, processing) would be handled by a concrete implementation which we can handle by using the concrete modules as callbacks (will become more clear as we move forward).......
     
   </a>
 
@@ -936,6 +945,7 @@
 
 <script type="text/javascript" src="https://www.thecodebinge.com/js/vendors/mdb/mdb.min.js"></script>
 
+<script type="text/javascript" src="https://www.thecodebinge.com/js/prism.js" ></script>
 <script type="text/javascript" src="https://www.thecodebinge.com/js/main.js"></script>
 
 
