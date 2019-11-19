@@ -1,29 +1,40 @@
 ---
-title: "Kubernetes, System Parts"
+title: "Kubernetes Basics"
 date: 2019-11-09T13:59:48+08:00
 draft: false
 tags: ["kubernetes"]
 categories: ["Kubernetes"]
-series: ["Kubernetes"]
+series: ["kubernetes"]
+
 ---
 
 ## Basic Terms
 
-__Kubectl__:
+- Kubernetes: The whole orchestration system for containers. Also called K8s.
+- Kubectl: CLI to configure kubernetes and manage apps. Pronounces Kube-cuttle
+           or kube-c-t-l.
+- Node: A single server in kubernetes cluseter.
+- Kubelet: Kubernetes agent running on nodes.
+- Control Plane(Managers): Set of containers managing the cluster. Runs
+  APIs, DNS, Database, scheduler, etcd, controller manager etc.
 
-CLI to configure kubernetes and manage apps.
 
-Known by different terms such as kubc-cuttle, kube c-t-l etc.
+### Control Plane(Master)
 
-__Node__:
+etcd -> A distributed key value storage system which uses Raft consensus 
+algorithm to manage a highly-available replicated log.
 
-Single server in the kubernetes cluster.
+api -> A set of calls to talk to the kubernetes engine running on master nodes.
 
-__Kubelet__:
+Scheduler -> Controls how or where containers are placed on nodes. 
+ 
+Controller Manager -> Looks at state of whole cluster using APIs. Receives
+orders from user and makes the system work accordingly.
 
-Kubernetes agent running on nodes.
+Core DNS -> Manage networking.
 
-__Control Plane__:
+### Nodes
 
-Set of containers that manage the cluster.
+kubelet ->
 
+kube-proxy -> 

@@ -12,3 +12,8 @@ summary = "How I build up my personal website"
 name = "elixir/otp"
 img = "images/series/elixir/ActorModel.png"
 summary = "A collection of blogs on understanding OTP with respect to Elixir"
+
+[[series]]
+name = "kubernetes"
+img = "images/series/elixir/ActorModel.png"
+summary = "Learn about kubernetes, a container orchestration engine."
