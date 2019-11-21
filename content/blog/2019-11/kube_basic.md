@@ -63,6 +63,8 @@ kubectl create(create some resources via CLI/YAML)
 kubectl apply(create/update anything via YAML)
 ```
 
+{{% img-no-border %}}<img name="Pods" src="/images/blog/kubernetes/introduction/pods.svg" width='300px'/>{{% /img-no-border %}}
+
 ### Verifying installation
 
 After correct installation you can run 
@@ -103,8 +105,35 @@ my-nginx-669bb4594c-z7g2s   1/1     Running   0          95s
 ```
 
 ### Cleanup
-```
+```shell
 kubectl delete deployment my-nginx
 ```
+
+### Scaling Replica Sets
+
+Starting a deployment of one replica/pod
+
+```shell
+kubectl run my-apache --image httpd
+```
+
+Scaling the replica 
+
+```shell
+kubectl scale deploy/my-apache --replicas 2
+```
+
+or
+
+```shell
+kubectl scale deployment my-apache --replicas 2
+```
+
+{{% img-no-border %}}<img name="Replica" 
+  src="/images/blog/kubernetes/introduction/replica.svg" 
+  width='300px'/>
+{{% /img-no-border %}}
+
+There are various ways of achieving the same task from the CLI.
 
 [mik8]: https://microk8s.io/#get-started
