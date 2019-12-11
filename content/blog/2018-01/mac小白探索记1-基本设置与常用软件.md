@@ -1,6 +1,6 @@
 ---
 date: "2018-01-30T15:04:48+08:00"
-draft: false
+draft: true
 title: "Mac小白探索记(1) 基本设置与常用软件"
 tags: ["mac", "软件安装"]
 series: ["Mac小白探索记"]

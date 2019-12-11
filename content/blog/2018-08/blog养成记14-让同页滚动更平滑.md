@@ -2,7 +2,7 @@
 date: "2018-08-18T20:14:59+08:00"
 publishdate: "2018-08-19+08:00"
 lastmod: "2018-08-18+08:00"
-draft: false
+draft: true
 title: "Blog养成记(14) 让同页滚动更平滑"
 tags: ["前端", "js", "blog"]
 series: ["Blog养成记"]

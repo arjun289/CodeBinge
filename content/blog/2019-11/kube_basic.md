@@ -11,7 +11,7 @@ series: ["kubernetes"]
 - __Kubernetes__: The whole orchestration system for containers. Also called K8s.
 - __Kubectl__: CLI to configure kubernetes and manage apps. Pronounces Kube-cuttle
            or kube-c-t-l.
-- __Node__: A single server in kubernetes cluseter.
+- __Node__: A single server in kubernetes cluster.
 - __Kubelet__: Kubernetes agent running on nodes.
 - __Control Plane(Managers)__: Set of containers managing the cluster. Runs
   APIs, DNS, Database, scheduler, etcd, controller manager etc.
@@ -34,9 +34,9 @@ orders from user and makes the system work accordingly.
 
 ### Nodes(Workers)
 
-kubelet ->
+`kubelet` ->
 
-kube-proxy -> 
+`kube-proxy` -> 
 
 ### Installing locally
 
@@ -44,12 +44,12 @@ To use kubernetes locally we can use [MicroK8s][mik8]. There are other ways
 to install, but I find this one, the most convenient.
 
 ### Kubernetes Container Abstractions
-- Pod: One or more nodes running together on one Node.
+- `Pod`: One or more nodes running together on one Node.
        - Basic unit of deployment. Containers are always in pod.
-- Controller: For creating/updating pods and other objects.
+- `Controller`: For creating/updating pods and other objects.
     - Many types of controllers Deployment, ReplicaSet, StatefulSet,
       DaemonSet, Job, CronJob etc.
-- Service: network endpoint to connect to a pod.
+- `Service`: network endpoint to connect to a pod.
 - Namespace: Filtered group of objects in cluster. A way to filter view.
 
 ### Run, create, apply

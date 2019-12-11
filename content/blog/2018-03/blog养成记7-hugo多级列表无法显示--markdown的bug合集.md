@@ -1,6 +1,6 @@
 ---
 date: "2018-03-20T16:46:17+08:00"
-draft: false
+draft: true
 title: "Blog养成记(7) Hugo多级列表无法显示? —— Markdown的bug合集"
 tags: ["hugo", "markdown", "nested list", "bug", "blog", "typora"]
 series: ["Blog养成记"]

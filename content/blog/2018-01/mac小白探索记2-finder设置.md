@@ -1,6 +1,6 @@
 ---
 date: "2018-01-30T20:21:13+08:00"
-draft: false 
+draft: true
 title: "Mac小白探索记(2) Finder设置"
 tags: ["mac"]
 series: ["Mac小白探索记"]
