@@ -10,10 +10,10 @@ title = "About"
 
 ##### Why CodeBinge?
 I fell in love with programming in my under graduation. I felt like it gave 
-me superpowers to create whatever I could, and I started **codebinging** 
+me superpowers to build whatever I wanted to, and I started **codebinging** 
 (if that's a word). I believe a lot in **self learning**. When we self-learn 
 the best way to retain, the plethora of concepts we come across is through 
-**sharing and teaching**, and I came up with this blog to share whatever I learnt, 
+**sharing and teaching**, and I came up with this blog to share whatever I learn, 
 with the world.
 
 ##### Present Status

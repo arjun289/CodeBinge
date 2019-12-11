@@ -5,10 +5,15 @@ summary = "This is the place I write reviews"
 
 [[series]]
 name = "blog养成记"
-img = "images/blog/2018-08/test5.jpg"
+img = "images/blog/2018-08/test1.jpg"
 summary = "How I build up my personal website"
 
 [[series]]
-name = "Elixir OTP"
+name = "elixir/otp"
 img = "images/series/elixir/ActorModel.png"
 summary = "A collection of blogs on understanding OTP with respect to Elixir"
+
+[[series]]
+name = "kubernetes"
+img = "images/series/elixir/ActorModel.png"
+summary = "Learn about kubernetes, a container orchestration engine."
