@@ -10,23 +10,23 @@ series: ["kafka"]
 
 ## Publish/Subscribe paradigm
 
-- Softwar systems are becoming more and more complex.
+- Software systems are becoming more and more complex.
 - Days of monoliths are over(as many say). The reason behind this is 
   software is built over existing infrastructure which allows everyone to 
-  think big allowing multiple types of processing, metrics analysis, 
-  active monitoring are now part of every application out there. 
+  think big allowing multiple types of processing, metric analysis, 
+  active monitoring to be a part of every application out there. 
   This leads to a web of dependencies. 
 - When applications start they take a technical debt of creating a mesh
   by making the services talk directly with each other as the services
   are few.
-- As the number of services grow companies decide to pay back this debt
+- As the number of services grow companies decide to pay back this debt,
   and try to decouple services by taking away the responsibility of 
-  sharing and putting it in a single central service which can be queried
+  sharing and putting it in a single central service, which can be queried
   for data of a particular type.
   > Image here describing the above.
 - Over-time this also becomes tedious and people have to centralize the entire
   messaging system and compartmentalize the messages into topics. 
-  This is what is known Pub/Sub way of handling of messages.
+  This is known as the Pub/Sub way of handling of messages.
   > Image here describing the above.
 
 ## Meet Kafka
@@ -36,7 +36,8 @@ of kafka(create a rabbit hole :D)
 
 ### Messages and Batches
 The unit of data within kafka is a __message__. Message has some metadata associated with it,
-which is referred to as a key. Keys are used when messages are to be written reliably to a partition. A consistent hash of the key is created, this hash modulo the number of partitions 
+which is referred to as a key. Keys are used when messages are to be written reliably to a partition. 
+A consistent hash of the key is created, this hash modulo the number of partitions 
 matches it to the same partition always.
 
 Batch is a collection of messages written to the same partition. These reduces network overhead
@@ -45,27 +46,51 @@ takes to propagate a single message.
 
 ### Schemas
 Messages in kafka are opaque, what this means is kafka doesn't care about the content of the
-message and it's an array of bytes. Though adding a schema is recommended so that contents
-can be understood. Apache Avro is suggested for serialization and desirialization. Schema
-creates consistency and decouples the producer and consumer of the message from each other. In 
+message, it's just an array of bytes. Adding a schema is recommended so that contents
+can be understood. Apache Avro is suggested for serialization. Schema
+creates consistency, and decouples the producer and consumer of the messages from each other. In 
 the absence of a schema, change in data format of a producer would need to be accompanied by a
 correspodnding change in the consumer.
 
 ### Topics and Partitions
 > Add an image here for understanding.
 
-Topics help categorize messages in Kafka. Topics are further broken down into multiple partitions. A partition is a `commit log`, message are written to it in an append only fashion. Partitions also help in providing redundancy, a parition is hosted on multiple
-servers. This allows the data to be redundant at the same time the topic can be scaled
-horizontally.
+Topics help categorize messages in Kafka. Topics are further broken down into multiple partitions.
+A partition is a `commit log`, message are written to it in an append only fashion. 
+Partitions also help in providing redundancy, a parition is hosted on multiple
+servers. This allows the data to be redundant, and at the same time the allows the system
+to be scaled horizontally.
 
 ### Producers and Consumers
-Users of the kafka are kafka clients. There are two basic types producers and consumers.
-There are two other advanced types called Kafka Connect API for data integration and Kafka
+Users of the kafka are kafka clients. There are two basic types; producers and consumers.
+There are two other advanced types; Kafka Connect API for data integration and Kafka
 Streams for stream processing. 
-Producers create new messages. By default, the producer doesn't care which partition the message goes to for a topic. In some conditions, it may be required for a producer/publisher
-to direct the message to a particular paritition. This can be handled with the help of custom
-partitioner wherein business rules can be added to handle, message direction to a particular
+Producers create new messages. By default, the producer doesn't care which partition the 
+message goes to for a topic. In some conditions, it may be required for a producer/publisher
+to direct the message to a particular paritition. This can be handled with the help of, custom
+partitioner, wherein business rules can be added to handle message direction to a particular
 partition.
+Consumers read messages by subscribing to one of the topics. To keep a track of messages
+that have been read, consumer uses an `offset`. Kakfa adds offset to each message as it
+is produced. The consumer can keep this offset in the zookeeper or kafka itself, so in case
+it restarts it can start consuming from the same point. Consumers work as a part of a 
+consumer group. 
+
+### Brokers and Clusters
+A single kafka server is called a broker. The broker receives message form `publisher`
+adds and `offset` to it and saves it to the disk. It also receives requests from 
+`consumers` and responds with the message. 
+The brokers are designed to be a part of a cluster. Within a cluster of `brokers`
+one will act as `broker controller`, performing administrative tasks related to them
+e.g. assigning partitions to a broker, monitoring failures. The partitions are replicated
+across multiple brokers, however the publisher and consumer of a partition should connect
+to the leader for that particular partition. 
+
+### Message Retention
+Kafka allows storing messages for some period of time. Default configuration is 7 days or
+until the topic reaches the specified size. Individual topics can also be configured with 
+a retention setting. Topics can also be `log compacted` which means only the last message
+produced with a specific key is retained.
 
 
 
