@@ -1,15 +1,15 @@
 ---
 title: "ElasticSearch Introduction"
-date: 2019-11-09T13:59:48+08:00
-draft: true
+date: 2020-03-10T08:23:48+08:00
+draft: false
 tags: ["elastic_search"]
-categories: ["elastic_search"]
-series: ["elastic_search"]
+categories: ["Elasticsearch"]
+series: ["elasticsearch"]
 ---
 
 ## What is elastic Search
 > Add data
-Builtin Java, based on Apache lucene.
+Built with Java, based on Apache lucene.
 Easy to use, and highly scalable.
 
 ## Use Cases
@@ -43,7 +43,3 @@ A document in elastic search corresponds to a row in database.
 }
 
 Each field in the document corresponds to a column in a table.
-
-
-
-

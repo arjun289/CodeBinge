@@ -17,3 +17,8 @@ summary = "A collection of blogs on understanding OTP with respect to Elixir"
 name = "kubernetes"
 img = "images/series/elixir/ActorModel.png"
 summary = "Learn about kubernetes, a container orchestration engine."
+
+[[series]]
+name = "elasticsearch"
+img = "images/series/elastic/elk_stack.png"
+summary = "Learn about elasticsearch"
