@@ -82,3 +82,6 @@ pygmentsuseclasses         = true
   googleAnalytics          = "your-google-analytic-id"
   
   custom_css = ["css/blog.css", "css/prism.css"]
+
+[markup.goldmark.renderer]
+  unsafe= true
