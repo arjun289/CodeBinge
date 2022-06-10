@@ -26,3 +26,6 @@ summary = "Learn about elasticsearch"
 [[series]]
 name="druid"
 img="images/series/druid/druid_logo.png"
+
+[[series]]
+name="mads"
