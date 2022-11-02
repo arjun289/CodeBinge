@@ -41,7 +41,7 @@ reliability decisions and optimize your operations. MADS collects, stores, and t
 data using secure cryptography, resilient even to quantum attacks.
 
 The below tree explains different types of apps in the MADS platform.
-{{% img-no-border %}}<img name="Pods" src="https://i.imgur.com/uoXVsYP.png" width='800px'/>{{% /img-no-border %}}
+{{% img-no-border %}}<img name="Pods" src="/images/blog/mads/mads_apps.png" width='800px'/>{{% /img-no-border %}}
 
 ## Architecture
 MADS has been designed to be:
